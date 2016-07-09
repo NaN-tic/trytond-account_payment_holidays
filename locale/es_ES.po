@@ -1,0 +1,159 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:party.payment.holidays:"
+msgid "Payment holidays period \"%s\" is not valid."
+msgstr "El periodo de vacaciones de pago \"%s\" no es válido."
+
+msgctxt "field:party.party,payment_holidays:"
+msgid "Payment Holidays"
+msgstr ""
+
+msgctxt "field:party.payment.holidays,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:party.payment.holidays,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:party.payment.holidays,from_day:"
+msgid "From Day"
+msgstr ""
+
+msgctxt "field:party.payment.holidays,from_month:"
+msgid "From Month"
+msgstr ""
+
+msgctxt "field:party.payment.holidays,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:party.payment.holidays,party:"
+msgid "Party"
+msgstr "Terceros"
+
+msgctxt "field:party.payment.holidays,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:party.payment.holidays,thru_day:"
+msgid "Thru Day"
+msgstr ""
+
+msgctxt "field:party.payment.holidays,thru_month:"
+msgid "Thru Month"
+msgstr ""
+
+msgctxt "field:party.payment.holidays,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:party.payment.holidays,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "model:party.payment.holidays,name:"
+msgid "Payment Holidays"
+msgstr ""
+
+msgctxt "selection:party.payment.holidays,from_month:"
+msgid "April"
+msgstr "Abril"
+
+msgctxt "selection:party.payment.holidays,from_month:"
+msgid "August"
+msgstr "Agosto"
+
+msgctxt "selection:party.payment.holidays,from_month:"
+msgid "December"
+msgstr "Diciembre"
+
+msgctxt "selection:party.payment.holidays,from_month:"
+msgid "February"
+msgstr "Febrero"
+
+msgctxt "selection:party.payment.holidays,from_month:"
+msgid "January"
+msgstr "Enero"
+
+msgctxt "selection:party.payment.holidays,from_month:"
+msgid "July"
+msgstr "Julio"
+
+msgctxt "selection:party.payment.holidays,from_month:"
+msgid "June"
+msgstr "Junio"
+
+msgctxt "selection:party.payment.holidays,from_month:"
+msgid "March"
+msgstr "Marzo"
+
+msgctxt "selection:party.payment.holidays,from_month:"
+msgid "May"
+msgstr "Mayo"
+
+msgctxt "selection:party.payment.holidays,from_month:"
+msgid "November"
+msgstr "Noviembre"
+
+msgctxt "selection:party.payment.holidays,from_month:"
+msgid "October"
+msgstr "Octubre"
+
+msgctxt "selection:party.payment.holidays,from_month:"
+msgid "September"
+msgstr "Septiembre"
+
+msgctxt "selection:party.payment.holidays,thru_month:"
+msgid "April"
+msgstr "Abril"
+
+msgctxt "selection:party.payment.holidays,thru_month:"
+msgid "August"
+msgstr "Agosto"
+
+msgctxt "selection:party.payment.holidays,thru_month:"
+msgid "December"
+msgstr "Diciembre"
+
+msgctxt "selection:party.payment.holidays,thru_month:"
+msgid "February"
+msgstr "Febrero"
+
+msgctxt "selection:party.payment.holidays,thru_month:"
+msgid "January"
+msgstr "Enero"
+
+msgctxt "selection:party.payment.holidays,thru_month:"
+msgid "July"
+msgstr "Julio"
+
+msgctxt "selection:party.payment.holidays,thru_month:"
+msgid "June"
+msgstr "Junio"
+
+msgctxt "selection:party.payment.holidays,thru_month:"
+msgid "March"
+msgstr "Marzo"
+
+msgctxt "selection:party.payment.holidays,thru_month:"
+msgid "May"
+msgstr "Mayo"
+
+msgctxt "selection:party.payment.holidays,thru_month:"
+msgid "November"
+msgstr "Noviembre"
+
+msgctxt "selection:party.payment.holidays,thru_month:"
+msgid "October"
+msgstr "Octubre"
+
+msgctxt "selection:party.payment.holidays,thru_month:"
+msgid "September"
+msgstr "Septiembre"
+
+msgctxt "view:party.payment.holidays:"
+msgid "Payment Holidays"
+msgstr ""
