@@ -1,0 +1,13 @@
+<form string="Payment Holidays">
+    <label name="party"/>
+    <field name="party"/>
+    <newline/>
+    <label name="from_day"/>
+    <field name="from_day"/>
+    <label name="from_month"/>
+    <field name="from_month"/>
+    <label name="thru_day"/>
+    <field name="thru_day"/>
+    <label name="thru_month"/>
+    <field name="thru_month"/>
+</form>

@@ -1,0 +1,7 @@
+<data>
+    <xpath expr="/form/notebook" position="inside">
+        <page name="payment_holidays">
+            <field name="payment_holidays" colspan="4"/>
+        </page>
+    </xpath>
+</data>
