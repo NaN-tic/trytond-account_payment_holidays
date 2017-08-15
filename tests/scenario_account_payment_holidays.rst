@@ -85,6 +85,7 @@ Create payment term::
     >>> line = payment_term.lines.new(type='remainder')
     >>> delta = line.relativedeltas.new(months=1)
     >>> payment_term.save()
+    >>> year = datetime.date.today().year
 
 Create invoice with due date in the middle of the payment holidays::
 
@@ -93,7 +94,7 @@ Create invoice with due date in the middle of the payment holidays::
     >>> invoice = Invoice()
     >>> invoice.party = party
     >>> invoice.payment_term = payment_term
-    >>> invoice.invoice_date = datetime.date(2016, 7, 15)
+    >>> invoice.invoice_date = datetime.date(year, 7, 15)
     >>> line = InvoiceLine()
     >>> invoice.lines.append(line)
     >>> line.account = revenue
@@ -108,7 +109,7 @@ Create invoice with due date in the middle of the payment holidays::
     >>> invoice.state
     u'posted'
     >>> line = [x for x in invoice.move.lines if x.account == receivable][0]
-    >>> line.maturity_date == datetime.date(2016, 9, 1)
+    >>> line.maturity_date == datetime.date(year, 8, 15)
     True
 
 Create invoice with due date after the payment holidays::
@@ -118,7 +119,7 @@ Create invoice with due date after the payment holidays::
     >>> invoice = Invoice()
     >>> invoice.party = party
     >>> invoice.payment_term = payment_term
-    >>> invoice.invoice_date = datetime.date(2016, 8, 15)
+    >>> invoice.invoice_date = datetime.date(year, 8, 15)
     >>> line = InvoiceLine()
     >>> invoice.lines.append(line)
     >>> line.account = revenue
@@ -133,7 +134,7 @@ Create invoice with due date after the payment holidays::
     >>> invoice.state
     u'posted'
     >>> line = [x for x in invoice.move.lines if x.account == receivable][0]
-    >>> line.maturity_date == datetime.date(2016, 9, 15)
+    >>> line.maturity_date == datetime.date(year, 9, 15)
     True
 
 Create invoice with due date on end-year payment holidays::
@@ -143,7 +144,7 @@ Create invoice with due date on end-year payment holidays::
     >>> invoice = Invoice()
     >>> invoice.party = party
     >>> invoice.payment_term = payment_term
-    >>> invoice.invoice_date = datetime.date(2016, 11, 25)
+    >>> invoice.invoice_date = datetime.date(year, 11, 25)
     >>> line = InvoiceLine()
     >>> invoice.lines.append(line)
     >>> line.account = revenue
@@ -158,5 +159,5 @@ Create invoice with due date on end-year payment holidays::
     >>> invoice.state
     u'posted'
     >>> line = [x for x in invoice.move.lines if x.account == receivable][0]
-    >>> line.maturity_date == datetime.date(2017, 1, 7)
+    >>> line.maturity_date == datetime.date(2017, 12, 25)
     True

@@ -19,6 +19,7 @@ MONTHS = [
     ('12', 'December'),
     ]
 
+
 class Party:
     __name__ = 'party.party'
     __metaclass__ = PoolMeta
