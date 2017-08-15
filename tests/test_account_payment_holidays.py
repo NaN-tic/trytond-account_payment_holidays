@@ -14,8 +14,10 @@ class AccountPaymentHolidaysTestCase(ModuleTestCase):
 
 def suite():
     suite = trytond.tests.test_tryton.suite()
-    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(AccountPaymentHolidaysTestCase))
-    suite.addTests(doctest.DocFileSuite('scenario_account_payment_holidays.rst',
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(
+        AccountPaymentHolidaysTestCase))
+    suite.addTests(doctest.DocFileSuite(
+            'scenario_account_payment_holidays.rst',
             setUp=doctest_setup, tearDown=doctest_teardown, encoding='utf-8',
             optionflags=doctest.REPORT_ONLY_FIRST_FAILURE))
     return suite
