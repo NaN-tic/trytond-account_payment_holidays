@@ -12,7 +12,7 @@ def process_payment_holidays(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         holidays = None
-        if self.type in ('out_invoice', 'out_credit_note'):
+        if self.type == 'out':
             holidays = []
             for period in self.party.payment_holidays:
                 holidays.append((int(period.from_month), period.from_day,
