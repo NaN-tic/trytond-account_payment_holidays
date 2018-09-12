@@ -159,5 +159,5 @@ Create invoice with due date on end-year payment holidays::
     >>> invoice.state
     u'posted'
     >>> line = [x for x in invoice.move.lines if x.account == receivable][0]
-    >>> line.maturity_date == datetime.date(year+1, 12, 25)
+    >>> line.maturity_date == datetime.date(year+1, 1, 7)
     True
