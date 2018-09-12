@@ -13,15 +13,9 @@ class PaymentTermLine:
     __name__ = 'account.invoice.payment_term.line'
     __metaclass__ = PoolMeta
 
-    def get_date(self, date):
-        '''
-        Override function from account_invoice module but check for the
-        'account_payment_party' key in context and check if the party has
-        any payment holidays period.
-        '''
+    def next_working_day(self, date):
         Date = Pool().get('ir.date')
         year = Date.today().year
-        value = super(PaymentTermLine, self).get_date(date)
         holidays = Transaction().context.get('account_payment_holidays')
         if holidays:
             assert isinstance(holidays, list)
@@ -32,8 +26,17 @@ class PaymentTermLine:
                 for from_month, from_day, thru_month, thru_day in holidays:
                     from_ = datetime.date(year, from_month, from_day)
                     thru = datetime.date(year, thru_month, thru_day)
-                    if value >= from_ and value <= thru:
-                        value = thru + relativedelta(days=1)
+                    if date >= from_ and date <= thru:
+                        date = thru + relativedelta(days=1)
                         exit = False
                 year += 1
-        return value
+        return date
+
+    def get_date(self, date):
+        '''
+        Override function from account_invoice module but check for the
+        'account_payment_party' key in context and check if the party has
+        any payment holidays period.
+        '''
+        return self.next_working_day(
+            super(PaymentTermLine, self).get_date(date))
