@@ -13,7 +13,7 @@ Imports::
     ...     get_company
     >>> from trytond.modules.account.tests.tools import create_fiscalyear, \
     ...     create_chart, get_accounts, create_tax
-    >>> from.trytond.modules.account_invoice.tests.tools import \
+    >>> from trytond.modules.account_invoice.tests.tools import \
     ...     set_fiscalyear_invoice_sequences
     >>> today = datetime.date.today()
 
@@ -99,7 +99,7 @@ Create invoice with due date in the middle of the payment holidays::
     Decimal('400.00')
     >>> invoice.click('post')
     >>> invoice.state
-    u'posted'
+    'posted'
     >>> line = [x for x in invoice.move.lines if x.account == receivable][0]
     >>> line.maturity_date == datetime.date(year, 9, 1)
     True
@@ -124,7 +124,7 @@ Create invoice with due date after the payment holidays::
     Decimal('400.00')
     >>> invoice.click('post')
     >>> invoice.state
-    u'posted'
+    'posted'
     >>> line = [x for x in invoice.move.lines if x.account == receivable][0]
     >>> line.maturity_date == datetime.date(year, 9, 15)
     True
@@ -149,7 +149,7 @@ Create invoice with due date on end-year payment holidays::
     Decimal('400.00')
     >>> invoice.click('post')
     >>> invoice.state
-    u'posted'
+    'posted'
     >>> line = [x for x in invoice.move.lines if x.account == receivable][0]
     >>> line.maturity_date == datetime.date(year+1, 1, 7)
     True

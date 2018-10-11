@@ -9,9 +9,8 @@ from trytond.pool import Pool, PoolMeta
 __all__ = ['PaymentTermLine']
 
 
-class PaymentTermLine:
+class PaymentTermLine(metaclass=PoolMeta):
     __name__ = 'account.invoice.payment_term.line'
-    __metaclass__ = PoolMeta
 
     def next_working_day(self, date):
         Date = Pool().get('ir.date')

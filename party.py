@@ -20,9 +20,8 @@ MONTHS = [
     ]
 
 
-class Party:
+class Party(metaclass=PoolMeta):
     __name__ = 'party.party'
-    __metaclass__ = PoolMeta
     payment_holidays = fields.One2Many('party.payment.holidays', 'party',
         'Payment Holidays')
 
