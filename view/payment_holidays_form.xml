@@ -1,4 +1,4 @@
-<form string="Payment Holidays">
+<form>
     <label name="party"/>
     <field name="party"/>
     <newline/>

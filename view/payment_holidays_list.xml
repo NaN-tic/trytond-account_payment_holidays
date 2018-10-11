@@ -1,4 +1,4 @@
-<tree string="Payment Holidays">
+<tree>
     <field name="party"/>
     <field name="from_day"/>
     <field name="from_month"/>
