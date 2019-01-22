@@ -1,6 +1,8 @@
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.pool import PoolMeta
 from trytond.pyson import Eval, If, Bool
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
 
 __all__ = ['Party', 'PaymentHolidays', 'PartyReplace']
 
@@ -53,13 +55,6 @@ class PaymentHolidays(ModelSQL, ModelView):
             self.from_month, self.thru_day, self.thru_month)
 
     @classmethod
-    def __setup__(cls):
-        super(PaymentHolidays, cls).__setup__()
-        cls._error_messages.update({
-                'invalid_period': 'Payment holidays period "%s" is not valid.',
-                })
-
-    @classmethod
     def validate(cls, holidays):
         for holiday in holidays:
             holiday.check_period()
@@ -70,7 +65,8 @@ class PaymentHolidays(ModelSQL, ModelView):
         if (self.from_month == self.thru_month
                 and self.from_day <= self.thru_day):
             return
-        self.raise_user_error('invalid_period', self.rec_name)
+        raise UserError(gettext('account_payment_holidays.invalid_period',
+            period=self.rec_name))
 
 
 class PartyReplace(metaclass=PoolMeta):

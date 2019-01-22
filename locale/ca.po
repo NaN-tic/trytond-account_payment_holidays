@@ -1,10 +1,6 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
-
-msgctxt "error:party.payment.holidays:"
-msgid "Payment holidays period \"%s\" is not valid."
-msgstr "El període de vacances de pagament \"%s\" no és vàlid."
 
 msgctxt "field:party.party,payment_holidays:"
 msgid "Payment Holidays"
@@ -53,6 +49,10 @@ msgstr "Usuari creació"
 msgctxt "field:party.payment.holidays,write_uid:"
 msgid "Write User"
 msgstr "Usuari modificació"
+
+msgctxt "model:ir.message,text:party.payment.holidays:"
+msgid "Payment holidays period \"%(period)s\" is not valid."
+msgstr "El període de vacances de pagament \"%(period)s\" no és vàlid."
 
 msgctxt "model:party.payment.holidays,name:"
 msgid "Payment Holidays"
