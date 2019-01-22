@@ -2,7 +2,7 @@ from trytond.model import ModelSQL, ModelView, fields
 from trytond.pool import PoolMeta
 from trytond.pyson import Eval, If, Bool
 
-__all__ = ['Party', 'PaymentHolidays']
+__all__ = ['Party', 'PaymentHolidays', 'PartyReplace']
 
 MONTHS = [
     ('01', 'January'),
@@ -71,3 +71,13 @@ class PaymentHolidays(ModelSQL, ModelView):
                 and self.from_day <= self.thru_day):
             return
         self.raise_user_error('invalid_period', self.rec_name)
+
+
+class PartyReplace(metaclass=PoolMeta):
+    __name__ = 'party.replace'
+
+    @classmethod
+    def fields_to_replace(cls):
+        return super(PartyReplace, cls).fields_to_replace() + [
+            ('party.payment.holidays', 'party'),
+            ]

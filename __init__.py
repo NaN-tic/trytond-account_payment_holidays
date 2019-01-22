@@ -13,3 +13,6 @@ def register():
         invoice.Invoice,
         payment_term.PaymentTermLine,
         module='account_payment_holidays', type_='model')
+    Pool.register(
+        party.PartyReplace,
+        module='account_payment_holidays', type_='wizard')
