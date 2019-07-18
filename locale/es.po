@@ -50,13 +50,13 @@ msgctxt "field:party.payment.holidays,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
 
-msgctxt "model:ir.message,text:party.payment.holidays:"
+msgctxt "model:ir.message,text:invalid_period"
 msgid "Payment holidays period \"%(period)s\" is not valid."
 msgstr "El periodo de vacaciones de pago \"%(period)s\" no es válido."
 
 msgctxt "model:party.payment.holidays,name:"
 msgid "Payment Holidays"
-msgstr ""
+msgstr "Vacaciones de pago"
 
 msgctxt "selection:party.payment.holidays,from_month:"
 msgid "April"
