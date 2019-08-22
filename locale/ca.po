@@ -1,14 +1,14 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "error:party.payment.holidays:"
 msgid "Payment holidays period \"%s\" is not valid."
-msgstr "El període de vacances de pagament \"%s\" no és vàlid."
+msgstr "El període de carència de pagament \"%s\" no és vàlid."
 
 msgctxt "field:party.party,payment_holidays:"
 msgid "Payment Holidays"
-msgstr "Vacances de pagament"
+msgstr "Períodes de carència"
 
 msgctxt "field:party.payment.holidays,create_date:"
 msgid "Create Date"
@@ -28,14 +28,14 @@ msgstr "Des del mes"
 
 msgctxt "field:party.payment.holidays,id:"
 msgid "ID"
-msgstr "Identificador"
+msgstr "ID"
 
 msgctxt "field:party.payment.holidays,party:"
 msgid "Party"
 msgstr "Tercer"
 
 msgctxt "field:party.payment.holidays,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr "Nom"
 
 msgctxt "field:party.payment.holidays,thru_day:"
@@ -48,15 +48,15 @@ msgstr "Fins al mes"
 
 msgctxt "field:party.payment.holidays,write_date:"
 msgid "Write Date"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:party.payment.holidays,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "model:party.payment.holidays,name:"
 msgid "Payment Holidays"
-msgstr "Vacances de pagament"
+msgstr "Períodes de carència"
 
 msgctxt "selection:party.payment.holidays,from_month:"
 msgid "April"
@@ -156,4 +156,4 @@ msgstr "Setembre"
 
 msgctxt "view:party.payment.holidays:"
 msgid "Payment Holidays"
-msgstr "Vacances de pagament"
+msgstr "Períodes de carència"
