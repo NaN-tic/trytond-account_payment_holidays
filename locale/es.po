@@ -1,14 +1,14 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "error:party.payment.holidays:"
 msgid "Payment holidays period \"%s\" is not valid."
-msgstr "El periodo de vacaciones de pago \"%s\" no es válido."
+msgstr "El período de carencia de pago \"%s\" no es válido."
 
 msgctxt "field:party.party,payment_holidays:"
 msgid "Payment Holidays"
-msgstr ""
+msgstr "Períodos de carencia"
 
 msgctxt "field:party.payment.holidays,create_date:"
 msgid "Create Date"
@@ -20,15 +20,15 @@ msgstr "Usuario de creación"
 
 msgctxt "field:party.payment.holidays,from_day:"
 msgid "From Day"
-msgstr ""
+msgstr "Desde el día"
 
 msgctxt "field:party.payment.holidays,from_month:"
 msgid "From Month"
-msgstr ""
+msgstr "Desde el mes"
 
 msgctxt "field:party.payment.holidays,id:"
 msgid "ID"
-msgstr "Identificador"
+msgstr "ID"
 
 msgctxt "field:party.payment.holidays,party:"
 msgid "Party"
@@ -40,23 +40,23 @@ msgstr "Nombre"
 
 msgctxt "field:party.payment.holidays,thru_day:"
 msgid "Thru Day"
-msgstr ""
+msgstr "Hasta el día"
 
 msgctxt "field:party.payment.holidays,thru_month:"
 msgid "Thru Month"
-msgstr ""
+msgstr "Hasta el mes"
 
 msgctxt "field:party.payment.holidays,write_date:"
 msgid "Write Date"
-msgstr "Fecha modificación"
+msgstr "Fecha de modificación"
 
 msgctxt "field:party.payment.holidays,write_uid:"
 msgid "Write User"
-msgstr "Usuario modificación"
+msgstr "Usuario de modificación"
 
 msgctxt "model:party.payment.holidays,name:"
 msgid "Payment Holidays"
-msgstr ""
+msgstr "Períodos de carencia"
 
 msgctxt "selection:party.payment.holidays,from_month:"
 msgid "April"
@@ -156,4 +156,4 @@ msgstr "Septiembre"
 
 msgctxt "view:party.payment.holidays:"
 msgid "Payment Holidays"
-msgstr ""
+msgstr "Períodos de carencia"
