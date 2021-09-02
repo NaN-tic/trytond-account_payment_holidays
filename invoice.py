@@ -5,8 +5,6 @@ from functools import wraps
 from trytond.model import ModelView, ModelSQL
 from trytond.transaction import Transaction
 
-__all__ = ['Invoice']
-
 
 def process_payment_holidays(func):
     @wraps(func)
@@ -26,12 +24,5 @@ class Invoice(ModelSQL, ModelView):
     __name__ = 'account.invoice'
 
     @process_payment_holidays
-    def create_move(self):
-        # This method is called when not issuing invoice_speedup.patch
-        # XXX: Remove when patch is commited in core and avoid decorator
-        return super(Invoice, self).create_move()
-
-    @process_payment_holidays
     def get_move(self):
-        # This method is called when using invoice_speedup.patch
-        return super(Invoice, self).get_move()
+        return super().get_move()
