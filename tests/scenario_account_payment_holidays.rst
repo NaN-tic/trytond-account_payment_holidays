@@ -32,6 +32,9 @@ Create fiscal year::
     ...     create_fiscalyear(company))
     >>> fiscalyear.click('create_period')
     >>> period = fiscalyear.periods[0]
+    >>> fiscalyear_next = set_fiscalyear_invoice_sequences(
+    ...     create_fiscalyear(company, today=today + relativedelta(years=1)))
+    >>> fiscalyear_next.click('create_period')
 
 Create chart of accounts::
 
@@ -86,7 +89,7 @@ Create invoice with due date in the middle of the payment holidays::
     >>> invoice = Invoice()
     >>> invoice.party = party
     >>> invoice.payment_term = payment_term
-    >>> invoice.invoice_date = datetime.date(year, 7, 15)
+    >>> invoice.invoice_date = (today + relativedelta(months=1)).replace(day=15)
     >>> line = InvoiceLine()
     >>> invoice.lines.append(line)
     >>> line.account = revenue
@@ -101,7 +104,7 @@ Create invoice with due date in the middle of the payment holidays::
     >>> invoice.state
     'posted'
     >>> line = [x for x in invoice.move.lines if x.account == receivable][0]
-    >>> line.maturity_date == datetime.date(year, 9, 1)
+    >>> line.maturity_date == invoice.invoice_date + relativedelta(months=1)
     True
 
 Create invoice with due date after the payment holidays::
@@ -111,7 +114,7 @@ Create invoice with due date after the payment holidays::
     >>> invoice = Invoice()
     >>> invoice.party = party
     >>> invoice.payment_term = payment_term
-    >>> invoice.invoice_date = datetime.date(year, 8, 15)
+    >>> invoice.invoice_date = (today + relativedelta(months=2)).replace(day=15)
     >>> line = InvoiceLine()
     >>> invoice.lines.append(line)
     >>> line.account = revenue
@@ -126,7 +129,7 @@ Create invoice with due date after the payment holidays::
     >>> invoice.state
     'posted'
     >>> line = [x for x in invoice.move.lines if x.account == receivable][0]
-    >>> line.maturity_date == datetime.date(year, 9, 15)
+    >>> line.maturity_date == invoice.invoice_date + relativedelta(months=1)
     True
 
 Create invoice with due date on end-year payment holidays::
@@ -136,7 +139,7 @@ Create invoice with due date on end-year payment holidays::
     >>> invoice = Invoice()
     >>> invoice.party = party
     >>> invoice.payment_term = payment_term
-    >>> invoice.invoice_date = datetime.date(year, 11, 25)
+    >>> invoice.invoice_date = (today + relativedelta(months=4)).replace(day=25)
     >>> line = InvoiceLine()
     >>> invoice.lines.append(line)
     >>> line.account = revenue
@@ -151,5 +154,5 @@ Create invoice with due date on end-year payment holidays::
     >>> invoice.state
     'posted'
     >>> line = [x for x in invoice.move.lines if x.account == receivable][0]
-    >>> line.maturity_date == datetime.date(year+1, 1, 7)
+    >>> line.maturity_date == invoice.invoice_date + relativedelta(months=1)
     True
