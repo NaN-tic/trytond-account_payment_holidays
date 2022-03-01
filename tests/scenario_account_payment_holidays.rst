@@ -3,6 +3,7 @@ Account Payment Holidays Scenario
 =================================
 
 Imports::
+
     >>> import datetime
     >>> from dateutil.relativedelta import relativedelta
     >>> from decimal import Decimal
@@ -15,7 +16,13 @@ Imports::
     ...     create_chart, get_accounts, create_tax
     >>> from trytond.modules.account_invoice.tests.tools import \
     ...     set_fiscalyear_invoice_sequences
-    >>> today = datetime.date.today()
+
+Define today as 1/1 of next year so that we don't get dates in the past which
+would make Tryton to complain about maturity dates in the past and also to make
+the scenario easier::
+
+    >>> year = datetime.date.today().year
+    >>> today = datetime.date(year + 1, 1, 1)
 
 Activate account_invoice::
 
@@ -29,12 +36,9 @@ Create company::
 Create fiscal year::
 
     >>> fiscalyear = set_fiscalyear_invoice_sequences(
-    ...     create_fiscalyear(company))
+    ...     create_fiscalyear(company, today=today))
     >>> fiscalyear.click('create_period')
     >>> period = fiscalyear.periods[0]
-    >>> fiscalyear_next = set_fiscalyear_invoice_sequences(
-    ...     create_fiscalyear(company, today=today + relativedelta(years=1)))
-    >>> fiscalyear_next.click('create_period')
 
 Create chart of accounts::
 
@@ -80,7 +84,6 @@ Create payment term::
     >>> line = payment_term.lines.new(type='remainder')
     >>> delta = line.relativedeltas.new(months=1)
     >>> payment_term.save()
-    >>> year = datetime.date.today().year
 
 Create invoice with due date in the middle of the payment holidays::
 
