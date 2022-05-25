@@ -16,6 +16,7 @@ Imports::
     ...     create_chart, get_accounts, create_tax
     >>> from trytond.modules.account_invoice.tests.tools import \
     ...     set_fiscalyear_invoice_sequences
+    >>> from trytond.exceptions import UserWarning
 
 Define today as 1/1 of next year so that we don't get dates in the past which
 would make Tryton to complain about maturity dates in the past and also to make
@@ -103,6 +104,16 @@ Create invoice with due date in the middle of the payment holidays::
     Decimal('400.00')
     >>> invoice.total_amount
     Decimal('400.00')
+    >>> try:
+    ...     invoice.click('post')
+    ... except UserWarning as warning:
+    ...     _, (key, *_) = warning.args
+    ...     raise  # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    InvoiceFutureWarning: ...
+    >>> Model.get('res.user.warning')(user=config.user,
+    ...     name=key, always=True).save()
     >>> invoice.click('post')
     >>> invoice.state
     'posted'
@@ -128,6 +139,16 @@ Create invoice with due date after the payment holidays::
     Decimal('400.00')
     >>> invoice.total_amount
     Decimal('400.00')
+    >>> try:
+    ...     invoice.click('post')
+    ... except UserWarning as warning:
+    ...     _, (key, *_) = warning.args
+    ...     raise  # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    InvoiceFutureWarning: ...
+    >>> Model.get('res.user.warning')(user=config.user,
+    ...     name=key, always=True).save()
     >>> invoice.click('post')
     >>> invoice.state
     'posted'
@@ -153,6 +174,16 @@ Create invoice with due date on end-year payment holidays::
     Decimal('400.00')
     >>> invoice.total_amount
     Decimal('400.00')
+    >>> try:
+    ...     invoice.click('post')
+    ... except UserWarning as warning:
+    ...     _, (key, *_) = warning.args
+    ...     raise  # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    InvoiceFutureWarning: ...
+    >>> Model.get('res.user.warning')(user=config.user,
+    ...     name=key, always=True).save()
     >>> invoice.click('post')
     >>> invoice.state
     'posted'
