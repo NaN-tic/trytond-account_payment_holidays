@@ -36,7 +36,7 @@ class PaymentHolidays(ModelSQL, ModelView):
     from_month = fields.Selection(MONTHS, 'From Month', required=True, domain=[
             If(Bool(Eval('thru_month')),
                 ('from_month', '<=', Eval('thru_month')), ()),
-            ], depends=['thru_month'], sort=False)
+            ], sort=False)
     from_day = fields.Integer('From Day', required=True, domain=[
             ('from_day', '>=', 1),
             ('from_day', '<=', 31),
@@ -44,7 +44,7 @@ class PaymentHolidays(ModelSQL, ModelView):
     thru_month = fields.Selection(MONTHS, 'Thru Month', required=True, domain=[
             If(Bool(Eval('from_month')),
                 ('thru_month', '>=', Eval('from_month')), ()),
-            ], depends=['from_month'], sort=False)
+            ], sort=False)
     thru_day = fields.Integer('Thru Day', required=True, domain=[
             ('thru_day', '>=', 1),
             ('thru_day', '<=', 31),
