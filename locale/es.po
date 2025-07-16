@@ -2,10 +2,6 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
-msgctxt "error:party.payment.holidays:"
-msgid "Payment holidays period \"%s\" is not valid."
-msgstr "El período de carencia de pago \"%s\" no es válido."
-
 msgctxt "field:party.party,payment_holidays:"
 msgid "Payment Holidays"
 msgstr "Períodos de carencia"
