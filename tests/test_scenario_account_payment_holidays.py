@@ -90,7 +90,7 @@ class Test(unittest.TestCase):
         # Create invoice with due date in the middle of the payment holidays
         Invoice = Model.get('account.invoice')
         InvoiceLine = Model.get('account.invoice.line')
-        invoice = Invoice()
+        invoice = Invoice(type='out')
         invoice.party = party
         invoice.payment_term = payment_term
         invoice.invoice_date = (today + relativedelta(months=1)).replace(day=15)
@@ -121,7 +121,7 @@ class Test(unittest.TestCase):
         # Create invoice with due date after the payment holidays
         Invoice = Model.get('account.invoice')
         InvoiceLine = Model.get('account.invoice.line')
-        invoice = Invoice()
+        invoice = Invoice(type='out')
         invoice.party = party
         invoice.payment_term = payment_term
         invoice.invoice_date = (today + relativedelta(months=2)).replace(day=15)
@@ -152,7 +152,7 @@ class Test(unittest.TestCase):
         # Create invoice with due date on end-year payment holidays
         Invoice = Model.get('account.invoice')
         InvoiceLine = Model.get('account.invoice.line')
-        invoice = Invoice()
+        invoice = Invoice(type='out')
         invoice.party = party
         invoice.payment_term = payment_term
         invoice.invoice_date = (today + relativedelta(months=4)).replace(day=25)
