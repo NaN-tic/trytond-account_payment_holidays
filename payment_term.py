@@ -9,6 +9,10 @@ from trytond.pool import Pool, PoolMeta
 __all__ = ['PaymentTermLine']
 
 
+def days_in_month(year, month):
+    return (datetime.date(year, month, 1) + relativedelta(day=31)).day
+
+
 class PaymentTermLine(metaclass=PoolMeta):
     __name__ = 'account.invoice.payment_term.line'
 
@@ -23,8 +27,12 @@ class PaymentTermLine(metaclass=PoolMeta):
             while not exit:
                 exit = True
                 for from_month, from_day, thru_month, thru_day in holidays:
-                    from_ = datetime.date(year, from_month, from_day)
-                    thru = datetime.date(year, thru_month, thru_day)
+                    from_ = datetime.date(
+                        year, from_month,
+                        min(from_day, days_in_month(year, from_month)))
+                    thru = datetime.date(
+                        year, thru_month,
+                        min(thru_day, days_in_month(year, thru_month)))
                     if date >= from_ and date <= thru:
                         date = thru + relativedelta(days=1)
                         exit = False
